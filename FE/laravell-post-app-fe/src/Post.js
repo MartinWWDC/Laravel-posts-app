@@ -1,16 +1,29 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function Post() {
     const [posts, setPosts] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [lastPage, setLastPage] = useState(1);
 
     useEffect(() => {
-        const fetchData = async () => {
-            const result = await fetch(process.env.REACT_APP_API_BASE_URL + '/api/posts');
-            const jsonResult = await result.json();
-            setPosts(jsonResult);
-        };
-        fetchData().catch(error => console.log("c'è tipo un problema: " + error));
-    }, []); // <= array vuoto come dipendenza
+        // Esegui la chiamata API per recuperare i dati paginati
+        axios.get(process.env.REACT_APP_API_BASE_URL+'/api/posts?page=' + currentPage)
+            .then(response => {
+                // Imposta i dati ricevuti dal server
+                setPosts(response.data.data);
+                setCurrentPage(response.data.current_page);
+                setLastPage(response.data.last_page);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, [currentPage]);
+
+    // Gestisci la paginazione
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
 
     const deleteButton = async (postId) => {
         try {
@@ -23,10 +36,10 @@ function Post() {
         }
     };
 
+    // Restituisci i dati paginati
     return (
-        <div className="posts">
-            <h2>Posts:</h2>
-            <div className="container px-lg-5">
+        <div>
+            <ul>
                 {posts.map(post => (
                     <div key={post.id} className="item">
                         <div className="row">
@@ -44,7 +57,18 @@ function Post() {
                         </div>
                     </div>
                 ))}
-            </div>
+            </ul>
+
+            <nav>
+                <ul className="pagination">
+                    {/* Visualizza i numeri delle pagine */}
+                    {[...Array(lastPage).keys()].map(pageNumber => (
+                        <li key={pageNumber} className={`page-item ${currentPage === pageNumber + 1 ? 'active' : ''}`}>
+                            <button className="page-link" onClick={() => handlePageChange(pageNumber + 1)}>{pageNumber + 1}</button>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
         </div>
     );
 }
