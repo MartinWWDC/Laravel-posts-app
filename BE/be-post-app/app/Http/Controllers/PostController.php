@@ -12,17 +12,11 @@ class PostController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-
     {
-        /*
-         * Implemented without model
-        $result=DB::select('SELECT id,content FROM posts');
-        return($result);
-        */
-        //Implemented with model
-        $posts=post::all();
-        return($posts);
-
+        //Utilizza il model Post per eseguire la query e la paginazione
+        //$posts = Post::paginate(3);
+        $posts=Post::all();
+        return $posts;
     }
 
     /**
@@ -46,7 +40,8 @@ class PostController extends Controller
         $post->save();
 */
         post::create(['content'=>$request['content']]);
-
+        //return response()->json(['message' => 'Utente creato con successo']);
+        return $request;
 
     }
 
@@ -80,6 +75,7 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        post::destroy($id);
+
     }
 }

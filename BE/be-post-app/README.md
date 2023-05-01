@@ -12,10 +12,12 @@ a basic Twitter Style  platform with Laravel  for the BE and HTML for the front 
 
 # TO DO
 
-- [ ] implement seeder
+- [x] implement seeder
 
-- [ ] improve  the post insert
+- [x] improve  the post insert
+
+- [ ] delete post
 
 - [ ] implement auth
-
-- [ ] varie ed eventuali 
+  
+  
