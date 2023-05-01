@@ -14,8 +14,7 @@ class PostController extends Controller
     public function index()
     {
         //Utilizza il model Post per eseguire la query e la paginazione
-        //$posts = Post::paginate(3);
-        $posts=Post::all();
+        $posts = Post::paginate(3);
         return $posts;
     }
 
