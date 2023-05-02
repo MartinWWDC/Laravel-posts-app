@@ -25,12 +25,15 @@ function Post() {
         setCurrentPage(pageNumber);
     };
 
+
     const deleteButton = async (postId) => {
         try {
             await fetch(process.env.REACT_APP_API_BASE_URL + `/api/posts/${postId}`, {
                 method: 'DELETE'
             });
             setPosts(prevPosts => prevPosts.filter(post => post.id !== postId));
+
+
         } catch (error) {
             console.log("c'è tipo un problema: " + error);
         }

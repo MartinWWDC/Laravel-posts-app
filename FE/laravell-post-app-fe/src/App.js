@@ -6,6 +6,9 @@ function App() {
 
     const [content, setContent] = useState("");
     const [message, setMessage] = useState("");
+
+    const [refreshKey, setRefreshKey] = useState(0);
+    
     let handleSubmit = async (e) => {
         const data ={content: content}
 
@@ -32,6 +35,11 @@ function App() {
 
         }
 
+    };
+    // Funzione per ricaricare il componente
+    // Funzione per ricaricare il componente
+    const handleRefreshClick = () => {
+        setRefreshKey(refreshKey + 1);
     };
 
   return (

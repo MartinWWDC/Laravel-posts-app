@@ -1,23 +1,21 @@
 # Intro
 
-a basic Twitter Style  platform with Laravel  for the BE and HTML for the front end for testing my knowledge about Laravel and finaly  startig working with bikeflip a basic Twitter Style  platform with Laravel  for the BE and HTML for the front end for testing my knowledge about Laravel and finally starting working with bikeflip 
+a basic Twitter Style  platform with Laravel  for the BE and HTML for the front end for testing my knowledge about Laravel and finaly  startig working with bikeflip a basic Twitter Style  platform with Laravel  for the BE and HTML for the front end for testing my knowledge about Laravel and finally starting working with bikeflip.
 
-# How to Set Up
+Implmented:
 
-1. Set up env file with  the MySql spec
+- [x] Factory
 
-2. ```bash
-   php artisan migrate
-   ```
+- [x] Seed
 
-# TO DO
+- [x] Migrations
 
-- [x] implement seeder
+- [x] Model
 
-- [x] improve  the post insert
+- [x] Api  ROutes 
 
-- [ ] delete post
+- [x] Delete Api 
 
-- [ ] implement auth
-  
-  
+- [x] Pagination 
+
+- [ ] edit 
