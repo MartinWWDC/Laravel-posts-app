@@ -49,17 +49,9 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        return($id);
+        return("c");
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     * does not have any return (???)
-     */
-    public function edit(string $id)
-    {
-
-    }
 
     /**
      * Update the specified resource in storage.
