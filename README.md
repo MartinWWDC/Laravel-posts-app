@@ -9,3 +9,29 @@ with:
 * BE: Laravell 
 
 * DATABASE: Xampp MySQL
+
+# TODO
+
+Implemented:
+
+- [ ] Dockerize
+
+- [x] Factory
+
+- [x] Seed
+
+- [x] Migrations
+
+- [x] Model
+
+- [x] Api  ROutes 
+
+- [x] Delete Api 
+
+- [x] Pagination 
+
+- [x] edit 
+
+- [ ] Auth
+
+- [ ] Dockerize
