@@ -22,4 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('/posts',PostController::class);
 
-Route::get('/posts/edit','PostController@edit');
+Route::post('/posts/update','PostController@update');

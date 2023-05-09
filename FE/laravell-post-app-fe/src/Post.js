@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import EditButton from "./EditButton";
 
 function Post() {
     const [posts, setPosts] = useState([]);
@@ -49,13 +50,16 @@ function Post() {
                             <div className="col">
                                 <p>id={post.id}</p>
                             </div>
-                            <div className="col-5">
+                            <div className="col-4">
                                 <p>{post.content}</p>
                             </div>
                             <div className="col">
                                 <button className="btn" onClick={() => deleteButton(post.id)}>
                                     <i className="fa fa-trash"></i>
                                 </button>
+                            </div>
+                            <div className="col">
+                                <EditButton data={post}/>
                             </div>
                         </div>
                     </div>

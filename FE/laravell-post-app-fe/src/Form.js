@@ -14,7 +14,7 @@ function Form() {
 
         e.preventDefault();
         try {
-            let res = await fetch(process.env.REACT_APP_API_BASE_URL+'/api/posts', {//TODO FIXX ADDRESS
+            let res = await fetch(process.env.REACT_APP_API_BASE_URL+'/api/posts', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
