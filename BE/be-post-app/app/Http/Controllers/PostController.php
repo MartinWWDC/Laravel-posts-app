@@ -60,6 +60,9 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $pos=post::find($request['id']);
+        $pos->content=$request['content'];
+        $pos->save();
         return($request);
     }
 
