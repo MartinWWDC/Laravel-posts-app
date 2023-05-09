@@ -60,7 +60,7 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        return($request['id']);
+        return($request);
     }
 
     /**

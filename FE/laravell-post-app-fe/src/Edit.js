@@ -10,10 +10,27 @@ function Edit() {
         content: myData.content
     });
 
-  
-    const handleSubmit = (event) => {
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(content);
+        const data = {id: myData.id,content: content}
+        console.log(JSON.stringify(data));
+
+        event.preventDefault();
+        try {
+            let res = await fetch(process.env.REACT_APP_API_BASE_URL + '/api/posts/update', {
+                method: "PUT",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+
+            });
+
+        } catch (err) {
+
+        }
+
     };
      // funzione che gestisce la presentazione del form
     function renderForm() {
