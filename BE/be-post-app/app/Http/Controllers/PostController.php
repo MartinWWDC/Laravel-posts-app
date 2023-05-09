@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\post;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -60,10 +61,15 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $pos=post::find($request['id']);
+        try {
+            $pos = post::findOrFail($request['id']);
+        } catch (ModelNotFoundException $e) {
+            return response(['message' => 'Record not found.'], 404);
+        }
+
         $pos->content=$request['content'];
         $pos->save();
-        return($request);
+        return response($request->all(), 200);
     }
 
     /**
