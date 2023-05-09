@@ -1,4 +1,4 @@
-import {useLocation} from "react-router-dom";
+import {Redirect, useHistory, useLocation} from "react-router-dom";
 import axios from "axios";
 import {useState} from "react";
 
@@ -9,6 +9,10 @@ function Edit() {
     const [content, setContent] = useState({
         content: myData.content
     });
+    const [message, setMessage] = useState("");
+    const history = useHistory();
+
+
 
 
     const handleSubmit = async (event) => {
@@ -26,6 +30,13 @@ function Edit() {
                 body: JSON.stringify(data)
 
             });
+            if (res.status === 200) {
+                setContent("");
+                //setMessage(resJson['message']);
+                history.push('/');
+            } else {
+                setMessage("Some error occured");
+            }
 
         } catch (err) {
 
@@ -53,7 +64,10 @@ function Edit() {
 
             </form>
                 <button onClick={handleSubmit}>Edit</button>
+                <div className="message">{message ? <p>{message}</p> : null}</div>
+
             </div>
+
 
         );
     }
