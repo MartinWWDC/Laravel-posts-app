@@ -17,6 +17,7 @@ function Post() {
                 setLastPage(response.data.last_page);
             })
             .catch(error => {
+                console.log(process.env.REACT_APP_API_BASE_URL+'/api/posts?page=' + currentPage)
                 console.log(error);
             });
     }, [currentPage]);
