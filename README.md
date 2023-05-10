@@ -8,13 +8,13 @@ with:
 
 * BE: Laravell 
 
-* DATABASE: Xampp MySQL
+* DATABASE: Docker MySQL
 
 # TODO
 
 Implemented:
 
-- [ ] Dockerize
+- [x] Dockerize
 
 - [x] Factory
 
