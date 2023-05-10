@@ -1,5 +1,4 @@
-import {Redirect, useHistory, useLocation} from "react-router-dom";
-import axios from "axios";
+import {useHistory, useLocation} from "react-router-dom";
 import {useState} from "react";
 
 function Edit() {
