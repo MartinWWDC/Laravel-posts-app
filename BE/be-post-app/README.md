@@ -12,6 +12,20 @@ run the project through the wsl if you are on windows and i run the following co
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 ```
 
+Install
+
+```bash
+composer install
+```
+
+copy the env file and run the following command
+
+```bash
+php artisan key:generate
+```
+
+Now you should be ready for running the project
+
 1. Run:
 
 ```bash
