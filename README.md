@@ -31,7 +31,3 @@ Implemented:
 - [x] Pagination 
 
 - [x] edit 
-
-- [ ] Auth
-
-- [ ] Dockerize
