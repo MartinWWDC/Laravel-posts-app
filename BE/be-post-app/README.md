@@ -12,6 +12,8 @@ run the project through the wsl if you are on windows and i run the following co
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 ```
 
+> MUST NEED: DOCKER
+
 Install
 
 ```bash
